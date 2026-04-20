@@ -128,6 +128,26 @@ p { margin: 0 0 1em 0; }
   background: var(--text-dark);
 }
 
+/* ---------- Nav donate pill (v13-style) ---------- */
+.nav-links a.nav-donate {
+  background: var(--green);
+  color: #ffffff !important;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+  padding-bottom: 10px; /* override default 6px so underline alignment looks pill-shaped */
+}
+.nav-links a.nav-donate:hover {
+  background: var(--green-deep);
+  color: #ffffff !important;
+}
+.nav-links a.nav-donate.active::after,
+.nav-links a.nav-donate::after { display: none; }
+
 /* ---------- Nav dropdown ---------- */
 .nav-item { position: relative; }
 .nav-item > a .caret {

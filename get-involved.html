@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Khushi Baby — Get Involved</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { background: #ffffff; }
+
+  /* ───────── Hero ───────── */
+  .gi-hero { position: relative; overflow: hidden; }
+  .gi-hero .hero-img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+  }
+  .gi-hero .hero-ov {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.70) 100%);
+  }
+  .gi-hero .hero-c {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0 80px 72px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .gi-hero .ey {
+    display: inline-block;
+    color: rgba(255,255,255,0.78);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .gi-hero h1 {
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.1;
+    max-width: 820px;
+    margin: 0 0 18px;
+  }
+  .gi-hero .sub {
+    color: rgba(255,255,255,0.92);
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 720px;
+    margin: 0;
+  }
+
+  /* ───────── Two-column rows ───────── */
+  .gi-sec { padding: 96px 0; }
+  .gi-sec.alt { background: #faf7f0; }
+  .gi-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .gi-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .gi-row.reverse .gi-text { order: 2; }
+  .gi-row.reverse .gi-photo { order: 1; }
+
+  .gi-text .ey {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .gi-text h2 {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 3.5vw, 2.7rem);
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin: 0 0 18px;
+  }
+  .gi-text p {
+    font-family: 'Lato', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin: 0 0 14px;
+  }
+  .gi-text p.small {
+    font-size: 14.5px;
+    color: #6a6a6a;
+  }
+  .gi-text .btn {
+    margin-top: 14px;
+  }
+
+  /* Photo placeholder (until real images drop in) */
+  .gi-photo {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8ede9 0%, #d9e3dc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #5a6a62;
+    font-style: italic;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+  .gi-photo.img {
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+  }
+
+  /* ───────── Donate band ───────── */
+  .gi-donate {
+    background: var(--green);
+    padding: 72px 0;
+    text-align: center;
+  }
+  .gi-donate h2 {
+    color: #ffffff;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+  .gi-donate p {
+    color: rgba(255,255,255,0.82);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 26px;
+  }
+  .gi-donate .btn-donate {
+    display: inline-block;
+    background: #ffffff;
+    color: var(--green);
+    border: 1.5px solid #ffffff;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color .2s, color .2s, transform .2s;
+  }
+  .gi-donate .btn-donate:hover {
+    background: transparent;
+    color: #ffffff;
+  }
+
+  @media (max-width: 960px) {
+    .gi-hero .hero-img { height: 380px; }
+    .gi-hero .hero-c { padding: 0 28px 40px; }
+    .gi-sec { padding: 64px 0; }
+    .gi-inner { padding: 0 28px; }
+    .gi-row { grid-template-columns: 1fr; gap: 28px; }
+    .gi-row.reverse .gi-text, .gi-row.reverse .gi-photo { order: unset; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="KB-logo.svg" alt="Khushi Baby"></a>
+    <nav class="nav-links">
+      <div class="nav-item">
+        <a href="about-kb.html">ABOUT KB <span class="caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="about-kb.html#story">Our Story</a>
+          <a href="about-kb.html#team">Our Team</a>
+          <a href="about-kb.html#partners">Partners</a>
+          <a href="https://www.khushibaby.org/homepages/finance-and-reports" target="_blank" rel="noopener">Finance &amp; Reports</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html">OUR WORK <span class="caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="index.html">Overview</a>
+          <a href="operating-system.html">Operating System</a>
+          <a href="chip.html">CHIP Platform</a>
+          <a href="health-action-centers.html">Health Action Centers</a>
+        </div>
+      </div>
+      <a href="#">AREAS WE IMPACT</a>
+      <a href="#">PUBLICATIONS</a>
+      <a href="get-involved.html" class="active">GET INVOLVED</a>
+      <a class="nav-donate" href="https://www.khushibaby.org/ui-elements/donate-page" target="_blank" rel="noopener">DONATE</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="gi-hero">
+  <img class="hero-img" src="frame-3/OPERATINGMODEL/navratan_impact.jpg" alt="Khushi Baby team working with community health workers">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <span class="ey">Get Involved</span>
+    <h1>Get involved</h1>
+    <p class="sub">It takes a village to close the loop at the last mile.</p>
+  </div>
+</section>
+
+<!-- PARTNER WITH US -->
+<section class="gi-sec" id="partner">
+  <div class="gi-inner">
+    <div class="gi-row">
+      <div class="gi-text">
+        <span class="ey">Partner with us</span>
+        <h2>Build with us</h2>
+        <p>Whether you&rsquo;re a funder, government department, research institution, or implementation partner &mdash; CHIP is designed as an open digital public good. Our playbooks, models, and tools are built to be shared, adapted, and replicated.</p>
+        <p>Contact us: <strong>engage@khushibaby.org</strong></p>
+        <a class="btn" href="mailto:engage@khushibaby.org">Send us a message &rarr;</a>
+      </div>
+      <div class="gi-photo">Photograph: KB team at a government MoU signing ceremony</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="gi-sec alt" id="careers">
+  <div class="gi-inner">
+    <div class="gi-row reverse">
+      <div class="gi-text">
+        <span class="ey">Careers</span>
+        <h2>Join our team</h2>
+        <p>We are a 120-member team across Rajasthan, Maharashtra, Karnataka, and the US. Certified Great Place to Work. We recruit world-class talent who want to work at the intersection of technology, data, and public health.</p>
+        <a class="btn btn-green" href="https://www.khushibaby.org/ui-elements/career-html" target="_blank" rel="noopener">View open positions &rarr;</a>
+      </div>
+      <div class="gi-photo">Photograph: KB team working in the field</div>
+    </div>
+  </div>
+</section>
+
+<!-- FELLOWSHIP -->
+<section class="gi-sec" id="fellowship">
+  <div class="gi-inner">
+    <div class="gi-row">
+      <div class="gi-text">
+        <span class="ey">Fellowship</span>
+        <h2>KB Fellowship Program</h2>
+        <p>Work across our DIA model &mdash; from field scoping to platform development to impact evaluation. A hands-on, immersive experience at the frontier of digital public health.</p>
+        <p class="small">Alumni from: Yale, Harvard, MIT, Berkeley, J-PAL, Johns Hopkins</p>
+        <a class="btn" href="https://www.khushibaby.org/ui-elements/fellowship" target="_blank" rel="noopener">Learn about the fellowship &rarr;</a>
+      </div>
+      <div class="gi-photo">Photograph: Fellowship alumni in the field</div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE CTA -->
+<section class="gi-donate" id="donate">
+  <div class="gi-inner">
+    <h2>Every contribution counts</h2>
+    <p>Every donation goes directly towards building the platforms, teams, and processes that close care loops at the last mile. Cost per beneficiary: $0.04.</p>
+    <a class="btn-donate" href="https://www.khushibaby.org/ui-elements/donate-page" target="_blank" rel="noopener">Donate &rarr;</a>
+  </div>
+</section>
+
+<div class="brand-stripe">
+  <span class="s-yellow"></span><span class="s-red"></span><span class="s-green"></span>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h5 class="footer-org" data-bind="footer.org"></h5>
+      <div class="f-address-row">
+        <div class="f-address">
+          <h5 class="footer-label">INDIA ADDRESS</h5>
+          <p data-bind="footer.india"></p>
+        </div>
+        <div class="f-address">
+          <h5 class="footer-label">US ADDRESS</h5>
+          <p data-bind="footer.us"></p>
+        </div>
+      </div>
+    </div>
+    <div class="f-links" data-repeat="footer.links">
+      <a data-template href="" data-bind-href="href" data-bind="label"></a>
+    </div>
+  </div>
+  <div class="footer-bottom" data-bind="footer.copy"></div>
+</footer>
+
+<script src="render.js"></script>
+</body>
+</html>
