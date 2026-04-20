@@ -51,10 +51,11 @@ h1, h2, h3, h4 {
   line-height: 1.12;
   font-weight: 500;
 }
-h1 { font-size: 64px; }
-h2 { font-size: 44px; }
-h3 { font-size: 28px; }
-h4 { font-size: 20px; }
+/* Responsive type scale aligned with v14 design system */
+h1 { font-size: clamp(2.4rem, 4.8vw, 3.75rem); }   /* ~38–60px */
+h2 { font-size: clamp(1.75rem, 3.4vw, 2.6rem); }   /* ~28–42px */
+h3 { font-size: clamp(1.3rem, 2.1vw, 1.65rem); }   /* ~21–26px */
+h4 { font-size: clamp(1.05rem, 1.4vw, 1.15rem); }  /* ~17–18px */
 
 p { margin: 0 0 1em 0; }
 
@@ -330,9 +331,9 @@ section { position: relative; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  h1 { font-size: 40px; }
-  h2 { font-size: 30px; }
-  h3 { font-size: 22px; }
   .nav-links { display: none; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 600px) {
+  body { font-size: 15px; }
 }

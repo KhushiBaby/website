@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Khushi Baby — About KB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { background: #ffffff; }
+
+  /* ───────── Hero (image bg, v14-style) ───────── */
+  .about-hero { position: relative; overflow: hidden; }
+  .about-hero .hero-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+  }
+  .about-hero .hero-ov {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.70) 100%);
+  }
+  .about-hero .hero-c {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0 80px 80px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .about-hero .ey {
+    display: inline-block;
+    color: rgba(255,255,255,0.78);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .about-hero h1 {
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 5.2vw, 4.2rem);
+    line-height: 1.1;
+    max-width: 820px;
+    margin: 0 0 22px;
+  }
+  .about-hero .sub {
+    color: rgba(255,255,255,0.92);
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 760px;
+    margin: 0;
+  }
+
+  /* ───────── Section shells ───────── */
+  .sec-white { background: #ffffff; padding: 96px 0; }
+  .sec-light { background: #faf7f0; padding: 96px 0; }
+  .sec-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .ey-mark {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .sec-h2 {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+    line-height: 1.18;
+    color: var(--text-dark);
+    margin: 0 0 24px;
+  }
+  .body-p {
+    font-family: 'Lato', sans-serif;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin: 0 0 18px;
+  }
+
+  /* Two-column grid for story/mission */
+  .g-2 {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .mission-callout {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin: 0 0 28px;
+  }
+
+  /* Leadership cards */
+  .leader-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 12px;
+  }
+  .leader-card {
+    background: #ffffff;
+    border: 1px solid #ebe6da;
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .leader-card h4 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.25;
+    margin: 0 0 4px;
+    color: var(--text-dark);
+  }
+  .leader-role {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+  }
+  .leader-bio {
+    font-family: 'Lato', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin: 0;
+  }
+  .senior-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin: 28px 0 24px;
+    max-width: 900px;
+  }
+
+  /* Partners */
+  .part-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .part-label.gov { color: var(--green); }
+  .part-label.rsrch { color: var(--coral); }
+  .part-label.fund { color: #b88020; }
+  .parts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .part-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid #d8d3c6;
+    border-radius: 999px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a3a3a;
+    background: #ffffff;
+    white-space: nowrap;
+  }
+  .part-chip.gov { border-color: var(--green); color: var(--green); }
+
+  /* Reports */
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 14px;
+  }
+  .report-card {
+    background: #ffffff;
+    border: 1px solid #ebe6da;
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+  }
+  .report-card h4 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0 0 10px;
+    color: var(--text-dark);
+  }
+  .report-card p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin: 0;
+  }
+  .report-card a { color: var(--green); text-decoration: none; font-weight: 700; }
+  .report-card a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .about-hero .hero-img { height: 420px; }
+    .about-hero .hero-c { padding: 0 32px 48px; }
+    .sec-white, .sec-light { padding: 64px 0; }
+    .sec-inner { padding: 0 28px; }
+    .g-2, .leader-grid, .reports-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="KB-logo.svg" alt="Khushi Baby"></a>
+    <nav class="nav-links">
+      <a href="about-kb.html" class="active">ABOUT KB</a>
+      <div class="nav-item">
+        <a href="index.html">OUR WORK <span class="caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="index.html">Overview</a>
+          <a href="operating-system.html">Operating System</a>
+          <a href="chip.html">CHIP Platform</a>
+          <a href="health-action-centers.html">Health Action Centers</a>
+        </div>
+      </div>
+      <a href="#">AREAS WE IMPACT</a>
+      <a href="#">PUBLICATIONS</a>
+      <a href="#">GET INVOLVED</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+  <img class="hero-img" src="frame-3/OPERATINGMODEL/navratan_impact.jpg" alt="Khushi Baby team in the field with community health workers">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <span class="ey">About KB</span>
+    <h1>About Khushi Baby</h1>
+    <p class="sub">Founded in 2014 at Yale University. Now a 120-member team embedded within government health systems across India.</p>
+  </div>
+</section>
+
+<!-- STORY + MISSION / VISION -->
+<section class="sec-white" id="story">
+  <div class="sec-inner">
+    <div class="g-2">
+      <div>
+        <span class="ey-mark">Our Story</span>
+        <h2 class="sec-h2">From a Yale classroom to India&rsquo;s public health infrastructure</h2>
+        <p class="body-p">In 2014, an interdisciplinary team of students at Yale prototyped a wearable immunization tracker for newborns in Udaipur, Rajasthan. What started as a hardware project evolved into something more fundamental: the insight that India&rsquo;s public health system doesn&rsquo;t need more data collection &mdash; it needs data that connects, informs, and drives action.</p>
+        <p class="body-p">Today, Khushi Baby operates as a technical partner to three state governments, powering one of the world&rsquo;s largest community health worker platforms. The organization has grown from two founders to a 120-member team, from one village to 40,000, and from a proof of concept to a model being considered for national adoption.</p>
+      </div>
+      <div>
+        <span class="ey-mark">Mission</span>
+        <p class="mission-callout">Strengthen public health systems to complete care feedback loops at the last mile &mdash; ensuring no high-risk mother or child falls through the cracks.</p>
+        <span class="ey-mark">Vision</span>
+        <p class="mission-callout" style="margin-bottom:0">A world where every community health system learns, improves, and delivers with precision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="sec-light" id="team">
+  <div class="sec-inner">
+    <span class="ey-mark">Leadership</span>
+    <h2 class="sec-h2">Our team</h2>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <h4>Ruchit Nagar, MD, MPH</h4>
+        <p class="leader-role">Co-Founder &amp; CEO</p>
+        <p class="leader-bio">Co-founded Khushi Baby at Yale. BS-MPH (Yale), MD magna cum laude (Harvard), residency (Yale). Currently a fellow in pediatric critical care at Yale. Leads strategic direction, research agenda, and global partnerships. Forbes 30 Under 30. Yale SPH Distinguished Alumnus.</p>
+      </div>
+      <div class="leader-card">
+        <h4>Mohammed Shahnawaz</h4>
+        <p class="leader-role">Co-Founder &amp; COO</p>
+        <p class="leader-bio">15+ years in public health implementation. Leads operations across three states, managing 150+ staff and government partnerships. Instrumental in scaling from one district to a multi-state platform. Brings the operational depth and cultural fluency required to execute in India&rsquo;s most complex environments.</p>
+      </div>
+    </div>
+    <p class="senior-note">Senior team includes leads in Data Science, Technology, Evidence &amp; Impact, Health Systems Strengthening, MEL, R&amp;D, Climate &times; Health, Digital Strategy, and state operations across Rajasthan, Maharashtra, and Karnataka.</p>
+    <a class="btn" href="https://www.khushibaby.org/our-team" target="_blank" rel="noopener">View full team &rarr;</a>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="sec-white" id="partners">
+  <div class="sec-inner">
+    <span class="ey-mark">Partners</span>
+    <h2 class="sec-h2">It takes a village</h2>
+
+    <p class="part-label gov">Government</p>
+    <div class="parts-row">
+      <span class="part-chip gov">Govt. of Rajasthan</span>
+      <span class="part-chip gov">Govt. of Maharashtra</span>
+      <span class="part-chip gov">Govt. of Karnataka</span>
+    </div>
+
+    <p class="part-label rsrch">Research &amp; Implementation</p>
+    <div class="parts-row">
+      <span class="part-chip">Microsoft Research</span>
+      <span class="part-chip">Google Health</span>
+      <span class="part-chip">Yale SPH</span>
+      <span class="part-chip">IIT Bombay</span>
+      <span class="part-chip">J-PAL</span>
+      <span class="part-chip">ARMMAN</span>
+      <span class="part-chip">PATH</span>
+      <span class="part-chip">WHO</span>
+      <span class="part-chip">UNICEF</span>
+    </div>
+
+    <p class="part-label fund">Funding Partners</p>
+    <div class="parts-row" style="margin-bottom:0">
+      <span class="part-chip">Skoll Foundation</span>
+      <span class="part-chip">Infosys Foundation</span>
+      <span class="part-chip">Google.org</span>
+      <span class="part-chip">Patrick J. McGovern</span>
+      <span class="part-chip">ICONIQ Impact</span>
+      <span class="part-chip">ARM</span>
+      <span class="part-chip">LGT VP</span>
+      <span class="part-chip">ACT Grants</span>
+      <span class="part-chip">GAVI</span>
+      <span class="part-chip">India Health Fund</span>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTS -->
+<section class="sec-light" id="reports">
+  <div class="sec-inner">
+    <span class="ey-mark">Reports &amp; Financials</span>
+    <h2 class="sec-h2">Transparency and accountability</h2>
+    <div class="reports-grid">
+      <div class="report-card">
+        <h4>Annual Report</h4>
+        <p>Latest organizational overview and impact reporting.</p>
+      </div>
+      <div class="report-card">
+        <h4>Audited Financials</h4>
+        <p>KBI Inc. financial statements (2022&ndash;2023).</p>
+      </div>
+      <div class="report-card">
+        <h4>Case Studies</h4>
+        <p><a href="https://drive.google.com/file/d/1ckpSEY4D0R6nc69LdXcsxW1aYLSzscUo/view" target="_blank" rel="noopener">View case studies book &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="brand-stripe">
+  <span class="s-yellow"></span><span class="s-red"></span><span class="s-green"></span>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h5 class="footer-org" data-bind="footer.org"></h5>
+      <div class="f-address-row">
+        <div class="f-address">
+          <h5 class="footer-label">INDIA ADDRESS</h5>
+          <p data-bind="footer.india"></p>
+        </div>
+        <div class="f-address">
+          <h5 class="footer-label">US ADDRESS</h5>
+          <p data-bind="footer.us"></p>
+        </div>
+      </div>
+    </div>
+    <div class="f-links" data-repeat="footer.links">
+      <a data-template href="" data-bind-href="href" data-bind="label"></a>
+    </div>
+  </div>
+  <div class="footer-bottom" data-bind="footer.copy"></div>
+</footer>
+
+<script src="render.js"></script>
+</body>
+</html>

@@ -32,8 +32,8 @@
   .hac-intro h1 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: 38px;
-    line-height: 1.1;
+    font-size: clamp(1.75rem, 3.1vw, 2.5rem);
+    line-height: 1.15;
     letter-spacing: 0;
     margin: 0;
     max-width: 500px;
@@ -41,9 +41,9 @@
   .hac-intro p {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 24px;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
     color: var(--text-body);
-    line-height: 1.5;
+    line-height: 1.65;
     letter-spacing: 0;
     max-width: 520px;
     margin: 0;
@@ -53,8 +53,8 @@
   .hac-model-title h2 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: 70px;
-    line-height: 1;
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+    line-height: 1.05;
     letter-spacing: 0;
   }
 
@@ -167,8 +167,8 @@
   .nandurbar h2 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: 70px;
-    line-height: 1;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    line-height: 1.1;
     letter-spacing: 0;
     color: #ECE1D8;
     max-width: 720px;
@@ -197,9 +197,9 @@
   .nandurbar-card h3 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: 28px;
-    line-height: 1.1;
-    margin-bottom: 28px;
+    font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+    line-height: 1.2;
+    margin-bottom: 24px;
     color: var(--text-dark);
   }
   .n-row { border-bottom: 1px solid var(--border); padding: 18px 0; }
@@ -241,19 +241,19 @@
     color: var(--text-dark);
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    font-size: 20px;
-    line-height: 0.9;
+    font-size: 15px;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: block;
   }
   .closing-loop p {
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-dark);
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: 0;
     margin: 0;
   }
@@ -271,26 +271,28 @@
   .tele-hac h2 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: 46px;
-    line-height: 1.1;
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    line-height: 1.15;
     letter-spacing: 0;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
   }
   .tele-hac p {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 16px;
     color: var(--text-body);
-    line-height: 1.5;
+    line-height: 1.7;
     letter-spacing: 0;
     margin-bottom: 20px;
   }
 
   @media (max-width: 900px) {
-    .hac-intro, .nandurbar-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hac-model-title h2 { font-size: 32px; }
-    .nandurbar h2 { font-size: 32px; }
-    .closing-loop { margin: -48px auto 40px; }
+    .hac-intro { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px 40px; }
+    .nandurbar-grid { grid-template-columns: 1fr; gap: 0; padding: 0 16px; }
+    .nandurbar-card { margin-left: 0; margin-top: -40px; padding: 32px 24px; }
+    .closing-loop { margin-left: 0; padding: 24px; }
+    .tele-hac { padding: 72px 24px; }
+    .flow-card { padding: 40px 28px 50px; }
   }
 </style>
 </head>
@@ -300,7 +302,7 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="KB-logo.svg" alt="Khushi Baby"></a>
     <nav class="nav-links">
-      <a href="#">ABOUT KB</a>
+      <a href="about-kb.html">ABOUT KB</a>
       <div class="nav-item">
         <a href="index.html" class="active">OUR WORK <span class="caret">▾</span></a>
         <div class="nav-dropdown">

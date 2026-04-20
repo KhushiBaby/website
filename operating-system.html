@@ -11,18 +11,122 @@
 <style>
   body { background: #ffffff; }
 
-  .os-hero { padding: 80px 24px 30px; text-align: center; }
-  .os-hero h1 { font-family: 'Lora', serif; font-size: 70px; line-height: 1; max-width: 800px; margin: 0 auto; font-weight: 600; letter-spacing: 0; }
+  /* ── v14-style image hero ── */
+  .os-hero-v2 { position: relative; overflow: hidden; }
+  .os-hero-v2 .hero-img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    display: block;
+  }
+  .os-hero-v2 .hero-ov {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+  }
+  .os-hero-v2 .hero-c {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 80px 80px;
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .os-hero-v2 .ey {
+    display: inline-block;
+    color: rgba(255,255,255,0.75);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .os-hero-v2 h1 {
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 5.6vw, 4.4rem);
+    line-height: 1.1;
+    letter-spacing: 0;
+    max-width: 820px;
+    margin: 0 0 22px;
+  }
+  .os-hero-v2 .sub {
+    color: rgba(255,255,255,0.92);
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.55;
+    max-width: 720px;
+    margin: 0;
+  }
 
-  .dia-cycle { max-width: 320px; margin: 50px auto 40px; display: block; }
+  .os-sec-title { text-align: center; padding: 90px 24px 30px; }
+  .os-sec-title h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+    line-height: 1.1;
+    max-width: 820px;
+    margin: 0 auto;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .dia-cycle { max-width: 280px; margin: 40px auto 50px; display: block; }
+
+  /* --- DIA cycle animated wrapper (text inside SVG stays static) --- */
+  .dia-cycle-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 40px auto 50px;
+    aspect-ratio: 371 / 229;
+  }
+  .dia-cycle-wrap .dia-cycle {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    max-width: none;
+  }
+  .dia-cycle-wrap .pulse {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -14px;
+    border-radius: 50%;
+    background: rgba(239, 58, 93, 0.55);
+    pointer-events: none;
+    transform: scale(0);
+    animation: diaPulse 2.8s ease-out infinite;
+  }
+  /* Circle coords in 371x229 viewBox:
+     Data    (92.5,  169.5) = 24.93% / 74.02%
+     Insights(177.5,  39.5) = 47.84% / 17.25%
+     Action  (265.5, 169.5) = 71.56% / 74.02% */
+  .dia-cycle-wrap .pulse.p-data     { left: 24.93%; top: 74.02%; animation-delay: 0s; }
+  .dia-cycle-wrap .pulse.p-insights { left: 47.84%; top: 17.25%; animation-delay: 0.9s; }
+  .dia-cycle-wrap .pulse.p-action   { left: 71.56%; top: 74.02%; animation-delay: 1.8s; }
+
+  @keyframes diaPulse {
+    0%   { transform: scale(0.25); opacity: 0.9; }
+    70%  { transform: scale(2.4);  opacity: 0; }
+    100% { transform: scale(2.4);  opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dia-cycle-wrap .pulse { animation: none; display: none; }
+  }
 
   .os-intro {
-    max-width: 860px;
-    margin: 0 auto 80px;
+    max-width: 760px;
+    margin: 0 auto 72px;
     text-align: center;
     font-family: 'Lora', serif;
-    font-size: 38px;
-    line-height: 1.1;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.3;
     color: var(--text-dark);
     font-weight: 600;
     padding: 0 32px;
@@ -42,23 +146,23 @@
   }
   .dia-card h4 {
     font-family: 'Lato', sans-serif;
-    font-size: 21px;
+    font-size: 16px;
     font-weight: 900;
     color: var(--green);
     letter-spacing: 0.05em;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.1;
   }
-  .dia-card p { font-family: 'Lato', sans-serif; font-size: 19px; color: var(--text-body); line-height: 1.4; margin: 0; }
+  .dia-card p { font-family: 'Lato', sans-serif; font-size: 15px; color: var(--text-body); line-height: 1.6; margin: 0; }
 
   .deploy-intro {
-    max-width: 860px;
-    margin: 0 auto 70px;
+    max-width: 760px;
+    margin: 96px auto 60px;
     text-align: center;
     font-family: 'Lora', serif;
-    font-size: 38px;
-    line-height: 1.1;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    line-height: 1.3;
     color: var(--text-dark);
     padding: 0 32px;
     font-weight: 600;
@@ -87,18 +191,18 @@
     background: var(--green);
     color: #fff;
     font-family: 'Lato', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 900;
-    padding: 13px 20px;
+    padding: 10px 16px;
     display: inline-block;
-    line-height: 0.9;
+    line-height: 1;
     border-radius: 6px;
   }
   .tab-black .label { background: var(--black); }
-  .tab .body { padding: 20px 24px 22px; }
-  .tab p { font-family: 'Lato', sans-serif; font-size: 20px; color: var(--text-body); line-height: 1.5; margin: 8px 0 18px; font-weight: 400; }
+  .tab .body { padding: 18px 22px 20px; }
+  .tab p { font-family: 'Lato', sans-serif; font-size: 15px; color: var(--text-body); line-height: 1.65; margin: 8px 0 18px; font-weight: 400; }
   .tab a.btn { font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; padding: 10px 20px; }
 
   .howit-wrap {
@@ -123,7 +227,7 @@
     max-width: 600px;
     margin-bottom: -180px;
   }
-  .howit-wrap h2 { font-family: 'Lora', serif; color: #fff; font-size: 70px; font-weight: 600; margin-bottom: 36px; line-height: 1; letter-spacing: 0; }
+  .howit-wrap h2 { font-family: 'Lora', serif; color: #fff; font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 600; margin-bottom: 32px; line-height: 1.05; letter-spacing: 0; }
   .howit-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
   .howit-row {
     padding: 22px 28px;
@@ -134,9 +238,9 @@
     margin-bottom: 0;
     color: var(--text-dark);
     font-family: 'Lora', serif;
-    font-size: 30px;
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
     font-weight: 600;
-    line-height: 1.1;
+    line-height: 1.2;
     letter-spacing: 0;
     text-transform: none;
     display: flex;
@@ -157,7 +261,7 @@
   .howit-row.open .eyebrow {
     color: var(--green);
     font-family: 'Lato', sans-serif;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -167,10 +271,10 @@
   .howit-row.open .eyebrow::after { content: '–'; }
   .howit-row.open p {
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: var(--text-body);
-    line-height: 1.5;
+    line-height: 1.65;
     margin: 0 0 14px;
   }
   .howit-row.open .sub-list {
@@ -183,7 +287,7 @@
     padding: 14px 0;
     border-bottom: 1px solid var(--border);
     font-family: 'Lato', sans-serif;
-    font-size: 19px;
+    font-size: 14px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 700;
@@ -219,24 +323,230 @@
   }
   .howit-row.open .sub-list li.sub-open .sub-body { display: block; }
 
-  .foundation { padding: 110px 0; }
+  .foundation { padding: 100px 0; }
   .foundation-inner {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 32px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 96px;
+    gap: 80px;
   }
-  .foundation h2 { font-family: 'Lora', serif; font-size: 47px; font-weight: 600; line-height: 1.1; letter-spacing: 0; margin-bottom: 26px; max-width: 580px; }
-  .foundation p { font-family: 'Lato', sans-serif; font-size: 22px; font-weight: 400; color: var(--text-body); line-height: 1.5; }
-  .foundation .btn { font-family: 'Lato', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.05em; }
+  .foundation h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 3.1vw, 2.4rem); font-weight: 600; line-height: 1.15; letter-spacing: 0; margin-bottom: 24px; max-width: 560px; }
+  .foundation p { font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400; color: var(--text-body); line-height: 1.7; }
+  .foundation .btn { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
 
   @media (max-width: 900px) {
-    .dia-card, .deploy-grid, .howit-inner, .foundation-inner { grid-template-columns: 1fr; gap: 40px; }
-    .os-hero h1 { font-size: 40px; }
-    .deploy-intro { font-size: 22px; }
-    .howit-wrap h2 { font-size: 36px; }
+    .dia-card, .deploy-grid, .foundation-inner { grid-template-columns: 1fr; gap: 36px; }
+    .dia-card { padding: 36px 28px; margin-bottom: 80px; }
+    .deploy-grid { padding: 0 24px; margin-bottom: 80px; }
+    .os-hero-v2 .hero-img { height: 420px; }
+    .os-hero-v2 .hero-c { padding: 0 24px 48px; }
+    .os-hero-v2 h1 { font-size: 38px; }
+    .os-hero-v2 .sub { font-size: 17px; }
+    .os-hero-v2 .hero-ov { background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%); }
+    .howit-inner { padding: 0 24px; }
+    .howit-wrap { margin-bottom: 80px; padding: 72px 0 0; }
+    .howit-card { margin-bottom: -60px; }
+    .foundation { padding: 80px 0; }
+  }
+
+  /* =============================================================
+     Ported from khushi_baby_v8: "Converting data to action…"
+     White background, black text; 4 cards carry horizontal
+     gradients matching the DIA color codes.
+     ============================================================= */
+  .os-convert {
+    background: #ffffff;
+    color: var(--text-dark);
+    padding: 96px 0;
+  }
+  .os-convert-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .os-convert-text h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 16px;
+    letter-spacing: -0.005em;
+  }
+  .os-convert-text p {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(0.92rem, 1.1vw, 1rem);
+    line-height: 1.8;
+    color: var(--text-body);
+    margin-bottom: 12px;
+  }
+  .os-convert-text p:last-child { margin-bottom: 0; }
+  .os-convert-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .os-chip {
+    border-radius: 6px;
+    padding: 16px 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  /* Left→right gradient tied to DIA colors */
+  .os-chip.c-data      { background: linear-gradient(90deg, rgba(15,115,89,0.22)  0%, rgba(15,115,89,0.08)  40%, #ffffff 100%); border-left: 4px solid #0F7359; }
+  .os-chip.c-insights  { background: linear-gradient(90deg, rgba(239,58,93,0.22)  0%, rgba(239,58,93,0.08)  40%, #ffffff 100%); border-left: 4px solid #C0392B; }
+  .os-chip.c-action    { background: linear-gradient(90deg, rgba(43,108,176,0.22) 0%, rgba(43,108,176,0.08) 40%, #ffffff 100%); border-left: 4px solid #2B6CB0; }
+  .os-chip.c-presence  { background: linear-gradient(90deg, rgba(244,193,48,0.28) 0%, rgba(244,193,48,0.10) 40%, #ffffff 100%); border-left: 4px solid #F4C130; }
+  .os-chip .lbl {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+  }
+  .os-chip .val {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+  }
+
+  /* =============================================================
+     Ported from khushi_baby_v8: "A new public health operating
+     system" — interactive DIA loop
+     ============================================================= */
+  .os-operating-model {
+    background: var(--bg-cream);
+    padding: 96px 0;
+  }
+  .os-om-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .os-om-title { text-align: center; margin-bottom: 8px; }
+  .os-om-title .ey {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .os-om-title h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.75rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 14px;
+  }
+  .os-om-title h2 em { font-style: italic; color: var(--green); }
+  .dia-legend {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 16px 0 24px;
+  }
+  .dia-legend-i {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .dia-legend-i .dot {
+    width: 14px; height: 3px;
+    border-radius: 2px;
+  }
+  .dot-d { background: #0F6E56; }
+  .dot-i { background: #C0392B; }
+  .dot-a { background: #2B6CB0; }
+  .dia-box {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .dia-svg-w { padding: 20px 32px 0; }
+  .dia-svg-w svg { width: 100%; height: auto; display: block; }
+  .dia-info {
+    border-top: 1px solid var(--border);
+    padding: 20px 32px 24px;
+    min-height: 56px;
+  }
+  .dia-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #999;
+  }
+  .dia-det { display: none; animation: fi 0.3s ease; }
+  .dia-det.on { display: block; }
+  .dia-det-ey {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .dia-det-t {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+  .dia-det-b {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 620px;
+    margin: 0;
+  }
+  @keyframes fi {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: none; }
+  }
+  .os-om-close {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 24px auto 0;
+  }
+  .os-om-close strong { color: var(--text-dark); }
+
+  @media (max-width: 900px) {
+    .os-convert { padding: 72px 0; }
+    .os-convert-inner { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
+    .os-operating-model { padding: 72px 0; }
+    .os-om-inner { padding: 0 24px; }
+    .dia-svg-w { padding: 16px 20px 0; }
+    .dia-info { padding: 16px 20px 20px; }
   }
 </style>
 </head>
@@ -246,7 +556,7 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="KB-logo.svg" alt="Khushi Baby"></a>
     <nav class="nav-links">
-      <a href="#">ABOUT KB</a>
+      <a href="about-kb.html">ABOUT KB</a>
       <div class="nav-item">
         <a href="index.html" class="active">OUR WORK <span class="caret">▾</span></a>
         <div class="nav-dropdown">
@@ -263,18 +573,120 @@
   </div>
 </header>
 
-<section class="os-hero">
-  <h1>A New Public Health<br/>Operating System</h1>
-  <img src="frame-2/Group 194.svg" alt="DIA cycle" class="dia-cycle">
-</section>
-<p class="os-intro">Khushi Baby's operating model strengthens public health systems by closing the gap between data, insights, and action — particularly at the last mile of service delivery.</p>
-
-<div class="dia-card" data-repeat="dia">
-  <div data-template>
-    <h4 data-bind="title"></h4>
-    <p data-bind="body"></p>
+<section class="os-hero-v2">
+  <img class="hero-img" src="frame-3/OPERATINGMODEL/navratan_impact.jpg" alt="Navratan — frontline health workers driving care to the most vulnerable">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <span class="ey">The Model</span>
+    <h1>Data driving care to the most vulnerable</h1>
+    <p class="sub">Khushi Baby strengthens public health systems by closing the gap between data, insights, and action — particularly at the last mile of service delivery.</p>
   </div>
-</div>
+</section>
+
+<!-- Converting data to action (from v8) -->
+<section class="os-convert" id="model-intro">
+  <div class="os-convert-inner">
+    <div class="os-convert-text">
+      <h2>Converting data to action for public health departments</h2>
+      <p>Khushi Baby operates as a technical partner to ministries of health — working in a build-operate-transfer model that scales through existing government systems rather than building new ones alongside them.</p>
+      <p>This keeps operating costs low, builds local ownership at every level of government, and produces a model that the state can adopt, fund, and run independently.</p>
+      <p>Our growth follows government demand, unmet need, and invitation from partners already working in a geography. Where we operate, we aim to go deeper before we go wider.</p>
+    </div>
+    <div class="os-convert-chips">
+      <div class="os-chip c-data"><p class="lbl">Approach</p><p class="val">Build &middot; Operate &middot; Transfer</p></div>
+      <div class="os-chip c-insights"><p class="lbl">Partners</p><p class="val">State and national ministries of health</p></div>
+      <div class="os-chip c-action"><p class="lbl">Framework</p><p class="val">Data &middot; Insights &middot; Action</p></div>
+      <div class="os-chip c-presence"><p class="lbl">Presence</p><p class="val">Rajasthan &middot; Maharashtra &middot; Karnataka</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Operating Model — interactive DIA loop (from v8) -->
+<section class="os-operating-model" id="model-os">
+  <div class="os-om-inner">
+    <div class="os-om-title">
+      <div class="ey">Our Operating Model</div>
+      <h2>A new public health <em>operating system</em></h2>
+    </div>
+    <div class="dia-legend">
+      <div class="dia-legend-i"><span class="dot dot-d"></span> Data</div>
+      <div class="dia-legend-i"><span class="dot dot-i"></span> Insights</div>
+      <div class="dia-legend-i"><span class="dot dot-a"></span> Action</div>
+    </div>
+    <div class="dia-box">
+      <div class="dia-svg-w">
+        <svg viewBox="0 0 680 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data, Insights, Action loop with community at center">
+          <defs>
+            <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <!-- Connecting arcs: all on circle centered (320, 240) radius 135.
+               Each arc terminates on the target node's circumference so the
+               arrowhead lands cleanly at the node edge. -->
+          <path d="M195.5 292.1 A135 135 0 0 1 294.1 107.5" fill="none" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar2)"/>
+          <path d="M345.9 107.5 A135 135 0 0 1 444.5 292.1" fill="none" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar2)"/>
+          <path d="M416.4 334.5 A135 135 0 0 1 223.6 334.5" fill="none" stroke="#2B6CB0" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar2)"/>
+          <!-- Animated dots cycling through the loop — pass through node centers on the same circle -->
+          <circle r="5" fill="#0F6E56" opacity=".8"><animateMotion dur="4.5s" repeatCount="indefinite" begin="0s" path="M207 315 A135 135 0 0 1 320 105 A135 135 0 0 1 433 315 A135 135 0 0 1 207 315"/></circle>
+          <circle r="5" fill="#C0392B" opacity=".8"><animateMotion dur="4.5s" repeatCount="indefinite" begin="-1.5s" path="M207 315 A135 135 0 0 1 320 105 A135 135 0 0 1 433 315 A135 135 0 0 1 207 315"/></circle>
+          <circle r="5" fill="#2B6CB0" opacity=".8"><animateMotion dur="4.5s" repeatCount="indefinite" begin="-3s" path="M207 315 A135 135 0 0 1 320 105 A135 135 0 0 1 433 315 A135 135 0 0 1 207 315"/></circle>
+          <!-- Center: Community — at circumcircle center (320, 240) -->
+          <circle cx="320" cy="240" r="52" fill="#F0F6F4" stroke="#D8E5E2" stroke-width="1"/>
+          <text x="320" y="238" font-family="'Lato',sans-serif" font-size="14" font-weight="500" text-anchor="middle" dominant-baseline="central" fill="#1A1A1A">Community</text>
+          <text x="320" y="255" font-family="'Lato',sans-serif" font-size="10" text-anchor="middle" fill="#888">at center</text>
+          <!-- Node D (green) -->
+          <g onclick="diaClick('D')" style="cursor:pointer">
+            <circle cx="207" cy="315" r="30" fill="#0F6E56" opacity=".08"/>
+            <circle id="nfD2" cx="207" cy="315" r="26" fill="#0F6E56" style="transition:fill .2s"/>
+            <text x="207" y="315" font-family="'Lora',serif" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white" style="pointer-events:none">D</text>
+          </g>
+          <text id="nlD2" x="162" y="350" font-family="'Lato',sans-serif" font-size="14" font-weight="500" text-anchor="end" fill="#555" style="pointer-events:none">Data</text>
+          <!-- Node I (red) -->
+          <g onclick="diaClick('I')" style="cursor:pointer">
+            <circle cx="320" cy="105" r="30" fill="#C0392B" opacity=".08"/>
+            <circle id="nfI2" cx="320" cy="105" r="26" fill="#C0392B" style="transition:fill .2s"/>
+            <text x="320" y="105" font-family="'Lora',serif" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white" style="pointer-events:none">I</text>
+          </g>
+          <text id="nlI2" x="320" y="62" font-family="'Lato',sans-serif" font-size="14" font-weight="500" text-anchor="middle" fill="#555" style="pointer-events:none">Insights</text>
+          <!-- Node A (blue) -->
+          <g onclick="diaClick('A')" style="cursor:pointer">
+            <circle cx="433" cy="315" r="30" fill="#2B6CB0" opacity=".08"/>
+            <circle id="nfA2" cx="433" cy="315" r="26" fill="#2B6CB0" style="transition:fill .2s"/>
+            <text x="433" y="315" font-family="'Lora',serif" font-size="22" font-weight="700" text-anchor="middle" dominant-baseline="central" fill="white" style="pointer-events:none">A</text>
+          </g>
+          <text id="nlA2" x="478" y="350" font-family="'Lato',sans-serif" font-size="14" font-weight="500" text-anchor="start" fill="#555" style="pointer-events:none">Action</text>
+        </svg>
+      </div>
+      <div class="dia-info">
+        <div class="dia-hint" id="dia-hint2">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1"/>
+            <line x1="8" y1="5.5" x2="8" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="8" cy="11.5" r=".8" fill="currentColor"/>
+          </svg>
+          Click D, I, or A to explore each stage
+        </div>
+        <div class="dia-det" id="ddD2">
+          <p class="dia-det-ey" style="color:#0F6E56">Data</p>
+          <h3 class="dia-det-t">High-quality data, collected once, connected across systems</h3>
+          <p class="dia-det-b">Our digital platforms make data collection simple and free of duplication for frontline health workers. Information captured on the ground is consolidated and made visible to the right stakeholders in the system.</p>
+        </div>
+        <div class="dia-det" id="ddI2">
+          <p class="dia-det-ey" style="color:#C0392B">Insights</p>
+          <h3 class="dia-det-t">Decision-grade intelligence at every level</h3>
+          <p class="dia-det-b">Our analytical infrastructure converts raw data into clear, decision-ready insights — presented in ways that make action straightforward for everyone in the system, from village health worker to chief minister.</p>
+        </div>
+        <div class="dia-det" id="ddA2">
+          <p class="dia-det-ey" style="color:#2B6CB0">Action</p>
+          <h3 class="dia-det-t">Coordinated response that closes the loop</h3>
+          <p class="dia-det-b">Our embedded teams enable data-driven decisions and improved health services — translating insights into follow-up calls, home visits, care escalations, policy changes, and resource reallocation at the last mile.</p>
+        </div>
+      </div>
+    </div>
+    <p class="os-om-close">By working across Data, Insights, and Action, the model produces something no single platform can: <strong>a system that learns</strong>.</p>
+  </div>
+</section>
 
 <p class="deploy-intro">We deploy a technology platform (CHIP) and an embedded process (Health Action Centers) to complete the Data–Insights–Action feedback loop.</p>
 
@@ -430,6 +842,26 @@
       if (rows.length) rows[rows.length - 1].classList.add('open');
     }, 150);
   });
+
+  /* DIA interactive (ported from v8) — clicks on D/I/A nodes */
+  (function(){
+    var diaDefault = { D: '#0F6E56', I: '#C0392B', A: '#2B6CB0' };
+    var diaActive = null;
+    window.diaClick = function(k) {
+      diaActive = (diaActive === k) ? null : k;
+      ['D','I','A'].forEach(function(x){
+        var isOn = (x === diaActive);
+        var nf = document.getElementById('nf' + x + '2');
+        var nl = document.getElementById('nl' + x + '2');
+        var dd = document.getElementById('dd' + x + '2');
+        if (nf) nf.setAttribute('fill', isOn ? '#1A1A1A' : diaDefault[x]);
+        if (nl) nl.setAttribute('fill', isOn ? '#1A1A1A' : '#555');
+        if (dd) dd.classList.toggle('on', isOn);
+      });
+      var h = document.getElementById('dia-hint2');
+      if (h) h.style.display = diaActive ? 'none' : 'flex';
+    };
+  })();
 </script>
 
 </body>
